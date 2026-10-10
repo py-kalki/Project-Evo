@@ -82,17 +82,14 @@ export function Header() {
           aria-label="Project Evo home"
         >
           <img
-            src="/loog.png"
+            src="/logo.svg"
             alt="Project Evo"
             style={{
-              height: '24px',
+              height: '16px',
               width: 'auto',
-              maxHeight: '24px',
-              objectFit: 'contain',
               display: 'block',
             }}
           />
-          <span>Project Evo</span>
         </Link>
 
         {/* Desktop nav links */}
