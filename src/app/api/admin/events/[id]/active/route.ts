@@ -6,7 +6,7 @@ import { err, validationError, handle } from '@/lib/api';
 
 const toggleActiveSchema = z.object({
   isActive: z.boolean({
-    required_error: 'isActive is required and must be a boolean',
+    message: 'isActive is required and must be a boolean',
   }),
 });
 

@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { CATEGORY_LABELS } from '@/lib/format';
 
 const CATEGORIES = [
   { value: '', label: 'All Categories' },

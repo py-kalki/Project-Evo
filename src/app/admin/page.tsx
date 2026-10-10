@@ -24,10 +24,6 @@ export default function AdminEventsPage() {
   const [togglingId, setTogglingId] = useState<string | null>(null);
   const [searchFilter, setSearchFilter] = useState('');
 
-  useEffect(() => {
-    fetchEvents();
-  }, []);
-
   async function fetchEvents() {
     setLoading(true);
     setError(null);
@@ -44,6 +40,10 @@ export default function AdminEventsPage() {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
 
   async function handleToggleActive(id: string, currentStatus: boolean) {
     const nextStatus = !currentStatus;

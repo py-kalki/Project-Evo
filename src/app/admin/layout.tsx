@@ -1,6 +1,8 @@
 import { redirect } from 'next/navigation';
 import { getSession } from '@/lib/auth';
 
+export const dynamic = 'force-dynamic';
+
 /**
  * Layer 2 of admin route protection (Server Component).
  * Checks the JWT session and redirects non-admins to /login.

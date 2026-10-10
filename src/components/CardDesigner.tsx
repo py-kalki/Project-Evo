@@ -55,9 +55,6 @@ export function CardDesigner({
     setSaving(true);
     setError(null);
 
-    const previousTheme = theme;
-    const previousStickers = stickers;
-
     try {
       const res = await fetch(`/api/events/${event.id}/card`, {
         method: 'PUT',

@@ -7,7 +7,7 @@ import { THEMES, STICKERS, MAX_STICKERS, DEFAULT_THEME } from '@/lib/card';
 
 const saveCardSchema = z.object({
   theme: z.enum(THEMES, {
-    errorMap: () => ({ message: `Theme must be one of: ${THEMES.join(', ')}` }),
+    message: `Theme must be one of: ${THEMES.join(', ')}`,
   }),
   stickers: z
     .array(z.enum(STICKERS))

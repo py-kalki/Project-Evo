@@ -12,7 +12,7 @@ const createEventSchema = z.object({
     .min(3, 'Title must be at least 3 characters')
     .max(120, 'Title must be at most 120 characters'),
   category: z.nativeEnum(Category, {
-    errorMap: () => ({ message: 'Category must be one of: MUSIC, WORKSHOP, FOOD, SPORTS, KIDS' }),
+    message: 'Category must be one of: MUSIC, WORKSHOP, FOOD, SPORTS, KIDS',
   }),
   city: z
     .string()
@@ -20,7 +20,7 @@ const createEventSchema = z.object({
     .min(2, 'City must be at least 2 characters')
     .max(60, 'City must be at most 60 characters'),
   startsAt: z.coerce.date({
-    errorMap: () => ({ message: 'Valid startsAt date is required' }),
+    message: 'Valid startsAt date is required',
   }),
   price: z
     .number()
