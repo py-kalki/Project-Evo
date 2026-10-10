@@ -16,8 +16,6 @@
   --color-smoke-gray: #abafb4;
   --color-iron: #6e727a;
   --color-charcoal: #464a4d;
-  --color-iris-violet: #9281f7;
-  --color-iris-violet-glow: #baa7ff;
   --color-signal-blue: #3b9eff;
   --color-sky-blue: #70b8ff;
   --color-pulse-green: #3ad389;
@@ -65,12 +63,7 @@
    Base Styles
 ───────────────────────────────────────────────────────────────────────────── */
 :root {
-  /* Gradients (not supported in @theme) */
-  --gradient-iris-violet: linear-gradient(
-    to right bottom in oklab,
-    rgb(146, 129, 247) 0%,
-    rgb(154, 84, 220) 100%
-  );
+  /* Gradients */
   --gradient-surface: linear-gradient(rgb(27, 27, 27), rgb(3, 3, 3));
 
   /* Layout */
@@ -122,7 +115,7 @@ body {
    Focus ring — visible but not intrusive
 ───────────────────────────────────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid #9281f7;
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
 
@@ -255,7 +248,7 @@ body {
 }
 .input:focus {
   outline: none;
-  border-color: #9281f7;
+  border-color: #ffffff;
 }
 
 /* Select */
@@ -274,7 +267,7 @@ body {
 }
 .select:focus {
   outline: none;
-  border-color: #9281f7;
+  border-color: #ffffff;
 }
 .select option {
   background: #0b0e14;
@@ -292,16 +285,16 @@ body {
   color: #a1a4a5;
 }
 
-/* Category badge with violet accent */
+/* Category badge */
 .badge-category {
   display: inline-flex;
   align-items: center;
   padding: 3px 8px;
-  background: rgba(146, 129, 247, 0.1);
-  border: 1px solid rgba(146, 129, 247, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid #292d30;
   border-radius: 6px;
   font-size: 12px;
-  color: #9281f7;
+  color: #f0f0f0;
   font-weight: 500;
 }
 
@@ -315,7 +308,7 @@ body {
 }
 .status-dot-green  { background: #3ad389; }
 .status-dot-red    { background: #ff9592; }
-.status-dot-violet { background: #9281f7; }
+.status-dot-white  { background: #ffffff; }
 
 /* Skeleton loading */
 .skeleton {

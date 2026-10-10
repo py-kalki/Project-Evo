@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { ArrowLeft } from 'lucide-react';
 
 const CATEGORIES = [
   { value: 'MUSIC', label: 'Music' },
@@ -118,7 +119,8 @@ export default function NewEventPage() {
           onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = '#ffffff')}
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = '#a1a4a5')}
         >
-          ← Back to Events
+          <ArrowLeft size={14} />
+          Back to Events
         </Link>
       </div>
 
@@ -343,9 +345,9 @@ export default function NewEventPage() {
                     type="button"
                     onClick={() => setImageUrl(p.url)}
                     style={{
-                      background: imageUrl === p.url ? 'rgba(146, 129, 247, 0.2)' : '#111111',
-                      border: imageUrl === p.url ? '1px solid #9281f7' : '1px solid #292d30',
-                      color: imageUrl === p.url ? '#baa7ff' : '#a1a4a5',
+                      background: imageUrl === p.url ? 'rgba(255, 255, 255, 0.1)' : '#111111',
+                      border: imageUrl === p.url ? '1px solid #ffffff' : '1px solid #292d30',
+                      color: imageUrl === p.url ? '#ffffff' : '#a1a4a5',
                       borderRadius: '4px',
                       padding: '4px 8px',
                       fontSize: '11px',
@@ -438,7 +440,7 @@ const inputStyle: React.CSSProperties = {
 };
 
 function focusInput(e: React.FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
-  e.target.style.borderColor = '#9281f7';
+  e.target.style.borderColor = '#ffffff';
 }
 
 function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {

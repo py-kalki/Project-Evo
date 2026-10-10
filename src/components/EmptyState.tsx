@@ -1,3 +1,5 @@
+import { SearchX } from 'lucide-react';
+
 interface EmptyStateProps {
   title?: string;
   description?: string;
@@ -22,7 +24,9 @@ export function EmptyState({
         margin: '24px 0',
       }}
     >
-      <div style={{ fontSize: '36px', marginBottom: '16px' }}>🔍</div>
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+        <SearchX size={36} color="#6e727a" />
+      </div>
       <h3
         style={{
           fontSize: '18px',

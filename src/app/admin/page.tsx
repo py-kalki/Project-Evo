@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { Plus, Pencil } from 'lucide-react';
 import { formatPrice, formatEventDate, CATEGORY_LABELS } from '@/lib/format';
 
 interface AdminEvent {
@@ -137,7 +138,7 @@ export default function AdminEventsPage() {
           onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#eaeaea')}
           onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = '#ffffff')}
         >
-          <span>＋</span>
+          <Plus size={16} />
           <span>Add New Event</span>
         </Link>
       </div>
@@ -205,7 +206,7 @@ export default function AdminEventsPage() {
             color: '#ffffff',
             outline: 'none',
           }}
-          onFocus={(e) => (e.target.style.borderColor = '#9281f7')}
+          onFocus={(e) => (e.target.style.borderColor = '#ffffff')}
           onBlur={(e) => (e.target.style.borderColor = '#292d30')}
         />
       </div>
@@ -359,9 +360,9 @@ export default function AdminEventsPage() {
                           borderRadius: '4px',
                           fontSize: '11px',
                           fontWeight: 500,
-                          backgroundColor: 'rgba(146, 129, 247, 0.12)',
-                          color: '#baa7ff',
-                          border: '1px solid rgba(146, 129, 247, 0.25)',
+                          backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                          color: '#f0f0f0',
+                          border: '1px solid #292d30',
                         }}
                       >
                         {CATEGORY_LABELS[evt.category] || evt.category}
@@ -436,8 +437,35 @@ export default function AdminEventsPage() {
                       )}
                     </td>
 
-                    {/* Toggle Button (no delete button exists) */}
+                    {/* Actions */}
                     <td style={{ padding: '14px 16px', textAlign: 'right' }}>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                        <Link
+                          href={`/admin/events/${evt.id}/edit`}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '6px 12px',
+                            borderRadius: '6px',
+                            fontSize: '12px',
+                            fontWeight: 500,
+                            color: '#f0f0f0',
+                            backgroundColor: 'transparent',
+                            border: '1px solid #292d30',
+                            textDecoration: 'none',
+                            transition: 'all 150ms ease-out',
+                          }}
+                          onMouseEnter={(e) => {
+                            (e.currentTarget as HTMLElement).style.borderColor = '#ffffff';
+                          }}
+                          onMouseLeave={(e) => {
+                            (e.currentTarget as HTMLElement).style.borderColor = '#292d30';
+                          }}
+                        >
+                          <Pencil size={13} />
+                          Edit
+                        </Link>
                       <button
                         onClick={() => handleToggleActive(evt.id, evt.isActive)}
                         disabled={isToggling}
@@ -475,6 +503,7 @@ export default function AdminEventsPage() {
                       >
                         {isToggling ? 'Updating...' : evt.isActive ? 'Set Inactive' : 'Set Active'}
                       </button>
+                    </div>
                     </td>
                   </tr>
                 );

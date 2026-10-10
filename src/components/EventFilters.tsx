@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Search, X } from 'lucide-react';
 
 const CATEGORIES = [
   { value: '', label: 'All Categories' },
@@ -104,7 +105,7 @@ export function EventFilters({
               outline: 'none',
               transition: 'border-color 150ms ease-out',
             }}
-            onFocus={(e) => (e.target.style.borderColor = '#9281f7')}
+            onFocus={(e) => (e.target.style.borderColor = '#ffffff')}
             onBlur={(e) => (e.target.style.borderColor = '#292d30')}
           />
           <button
@@ -119,11 +120,14 @@ export function EventFilters({
               color: '#a1a4a5',
               cursor: 'pointer',
               padding: '6px',
-              fontSize: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
             title="Search"
+            aria-label="Search"
           >
-            🔍
+            <Search size={16} />
           </button>
         </form>
 
@@ -171,6 +175,9 @@ export function EventFilters({
               fontSize: '13px',
               color: '#a1a4a5',
               cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
               transition: 'all 150ms ease-out',
             }}
             onMouseEnter={(e) => {
@@ -182,7 +189,8 @@ export function EventFilters({
               (e.currentTarget as HTMLElement).style.color = '#a1a4a5';
             }}
           >
-            Clear Filters ✕
+            <span>Clear Filters</span>
+            <X size={14} />
           </button>
         )}
       </div>
@@ -216,7 +224,7 @@ export function EventFilters({
               }}
               onMouseEnter={(e) => {
                 if (!isSelected) {
-                  (e.currentTarget as HTMLElement).style.borderColor = '#9281f7';
+                  (e.currentTarget as HTMLElement).style.borderColor = '#ffffff';
                   (e.currentTarget as HTMLElement).style.color = '#ffffff';
                 }
               }}

@@ -3,20 +3,21 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Music, Palette, UtensilsCrossed, Activity, Rocket, Check, Compass } from 'lucide-react';
 
 interface CategoryOption {
   value: string;
   label: string;
-  icon: string;
+  icon: React.ReactNode;
   desc: string;
 }
 
 const CATEGORIES: CategoryOption[] = [
-  { value: 'MUSIC', label: 'Music', icon: '🎵', desc: 'Acoustic gigs, jazz nights, and live open mics' },
-  { value: 'WORKSHOP', label: 'Workshop', icon: '🎨', desc: 'Pottery, creative writing, and craft masterclasses' },
-  { value: 'FOOD', label: 'Food', icon: '🍕', desc: 'Food walks, street festivals, and pop-up markets' },
-  { value: 'SPORTS', label: 'Sports', icon: '🏃', desc: 'Marathons, beach runs, and community fitness' },
-  { value: 'KIDS', label: 'Kids', icon: '🚀', desc: 'Science fairs, coding bootcamps, and art sessions' },
+  { value: 'MUSIC', label: 'Music', icon: <Music size={20} />, desc: 'Acoustic gigs, jazz nights, and live open mics' },
+  { value: 'WORKSHOP', label: 'Workshop', icon: <Palette size={20} />, desc: 'Pottery, creative writing, and craft masterclasses' },
+  { value: 'FOOD', label: 'Food', icon: <UtensilsCrossed size={20} />, desc: 'Food walks, street festivals, and pop-up markets' },
+  { value: 'SPORTS', label: 'Sports', icon: <Activity size={20} />, desc: 'Marathons, beach runs, and community fitness' },
+  { value: 'KIDS', label: 'Kids', icon: <Rocket size={20} />, desc: 'Science fairs, coding bootcamps, and art sessions' },
 ];
 
 export default function OnboardingPage() {
@@ -121,12 +122,13 @@ export default function OnboardingPage() {
               width: '40px',
               height: '40px',
               borderRadius: '10px',
-              background: 'linear-gradient(to right bottom in oklab, rgb(146, 129, 247) 0%, rgb(154, 84, 220) 100%)',
-              fontSize: '20px',
+              background: '#1a1a1a',
+              border: '1px solid #292d30',
               marginBottom: '16px',
+              color: '#ffffff',
             }}
           >
-            ⭐
+            <Compass size={20} />
           </div>
           <h1
             style={{
@@ -213,17 +215,16 @@ export default function OnboardingPage() {
                     width: '20px',
                     height: '20px',
                     borderRadius: '4px',
-                    border: isChecked ? '1px solid #9281f7' : '1px solid #6e727a',
-                    backgroundColor: isChecked ? '#9281f7' : 'transparent',
+                    border: isChecked ? '1px solid #ffffff' : '1px solid #6e727a',
+                    backgroundColor: isChecked ? '#ffffff' : 'transparent',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#ffffff',
-                    fontSize: '12px',
-                    fontWeight: 'bold',
+                    color: '#000000',
+                    flexShrink: 0,
                   }}
                 >
-                  {isChecked ? '✓' : ''}
+                  {isChecked && <Check size={12} strokeWidth={3} />}
                 </div>
               </button>
             );

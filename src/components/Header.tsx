@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
+import { Menu, X } from 'lucide-react';
 
 interface UserSession {
   id: string;
@@ -12,7 +13,7 @@ interface UserSession {
 
 /**
  * Header — shared navigation bar.
- * Design: transparent background, hairline bottom border (#292d30), white wordmark.
+ * Design: transparent background, hairline bottom border (#292d30), white wordmark with loog.png.
  * Reads session from localStorage (set after login) and re-validates on mount.
  */
 export function Header() {
@@ -65,7 +66,7 @@ export function Header() {
         }}
         aria-label="Main navigation"
       >
-        {/* Wordmark */}
+        {/* Wordmark with Brand Logo Image */}
         <Link
           href="/events"
           style={{
@@ -76,25 +77,21 @@ export function Header() {
             letterSpacing: '-0.3px',
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '10px',
           }}
           aria-label="Project Evo home"
         >
-          <span
+          <img
+            src="/loog.png"
+            alt="Project Evo"
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '28px',
-              height: '28px',
-              background: 'linear-gradient(to right bottom in oklab, rgb(146, 129, 247) 0%, rgb(154, 84, 220) 100%)',
-              borderRadius: '6px',
-              fontSize: '14px',
+              height: '26px',
+              width: 'auto',
+              maxHeight: '26px',
+              objectFit: 'contain',
+              display: 'block',
             }}
-            aria-hidden="true"
-          >
-            ⚡
-          </span>
+          />
           <span>Project Evo</span>
         </Link>
 
@@ -178,12 +175,11 @@ export function Header() {
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
-              fontSize: '18px',
             }}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
           >
-            {menuOpen ? '✕' : '☰'}
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </nav>

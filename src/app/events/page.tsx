@@ -2,6 +2,7 @@
 
 import { Suspense, useEffect, useState, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { Radio } from 'lucide-react';
 import { EventCard, EventItem } from '@/components/EventCard';
 import { EventFilters } from '@/components/EventFilters';
 import { Pagination } from '@/components/Pagination';
@@ -115,15 +116,15 @@ function EventsContent() {
               gap: '6px',
               padding: '4px 12px',
               borderRadius: '20px',
-              backgroundColor: 'rgba(146, 129, 247, 0.1)',
-              border: '1px solid rgba(146, 129, 247, 0.25)',
-              color: '#baa7ff',
+              backgroundColor: 'rgba(255, 255, 255, 0.06)',
+              border: '1px solid #292d30',
+              color: '#f0f0f0',
               fontSize: '12px',
               fontWeight: 500,
               marginBottom: '16px',
             }}
           >
-            <span>✨</span>
+            <Radio size={14} color="#3ad389" />
             <span>Live Community Board</span>
           </div>
 

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { MapPin } from 'lucide-react';
 import { formatPrice, formatEventDate, CATEGORY_LABELS } from '@/lib/format';
 
 export interface EventItem {
@@ -29,7 +30,7 @@ export function EventCard({ event }: { event: EventItem }) {
       }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
-        (e.currentTarget as HTMLElement).style.borderColor = '#9281f7';
+        (e.currentTarget as HTMLElement).style.borderColor = '#ffffff';
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
@@ -60,8 +61,8 @@ export function EventCard({ event }: { event: EventItem }) {
             fontWeight: 600,
             backgroundColor: 'rgba(0, 0, 0, 0.75)',
             backdropFilter: 'blur(8px)',
-            color: '#baa7ff',
-            border: '1px solid rgba(146, 129, 247, 0.3)',
+            color: '#f0f0f0',
+            border: '1px solid #292d30',
             textTransform: 'uppercase',
             letterSpacing: '0.4px',
           }}
@@ -102,10 +103,13 @@ export function EventCard({ event }: { event: EventItem }) {
             marginBottom: '8px',
           }}
         >
-          <span style={{ color: '#baa7ff', fontWeight: 500 }}>
+          <span style={{ color: '#f0f0f0', fontWeight: 500 }}>
             {formatEventDate(event.startsAt)}
           </span>
-          <span>📍 {event.city}</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+            <MapPin size={12} color="#a1a4a5" />
+            <span>{event.city}</span>
+          </span>
         </div>
 
         {/* Title */}

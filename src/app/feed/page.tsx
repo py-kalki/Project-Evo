@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { Zap, Settings, Target, Calendar } from 'lucide-react';
 import { EventCard, EventItem } from '@/components/EventCard';
 import { Pagination } from '@/components/Pagination';
 import { EventGridSkeleton } from '@/components/EventCardSkeleton';
@@ -81,15 +82,15 @@ function FeedContent() {
                 gap: '6px',
                 padding: '4px 12px',
                 borderRadius: '20px',
-                backgroundColor: 'rgba(146, 129, 247, 0.1)',
-                border: '1px solid rgba(146, 129, 247, 0.25)',
-                color: '#baa7ff',
+                backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                border: '1px solid #292d30',
+                color: '#f0f0f0',
                 fontSize: '12px',
                 fontWeight: 500,
                 marginBottom: '12px',
               }}
             >
-              <span>⚡</span>
+              <Zap size={14} color="#ffca16" />
               <span>Curated For You</span>
             </div>
             <h1
@@ -124,10 +125,10 @@ function FeedContent() {
               textDecoration: 'none',
               transition: 'border-color 150ms ease-out',
             }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = '#9281f7')}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = '#ffffff')}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = '#292d30')}
           >
-            <span>⚙️</span>
+            <Settings size={15} />
             <span>Edit Favourites</span>
           </Link>
         </div>
@@ -177,7 +178,7 @@ function FeedContent() {
               margin: '40px auto',
             }}
           >
-            <div style={{ fontSize: '40px', marginBottom: '16px' }}>🎯</div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}><Target size={40} color="#6e727a" /></div>
             <h2 style={{ fontSize: '20px', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
               Select Your Interests
             </h2>
@@ -214,7 +215,7 @@ function FeedContent() {
               maxWidth: '560px',
             }}
           >
-            <div style={{ fontSize: '40px', marginBottom: '16px' }}>🗓️</div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}><Calendar size={40} color="#6e727a" /></div>
             <h2 style={{ fontSize: '20px', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
               No Events Found Right Now
             </h2>

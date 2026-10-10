@@ -3,6 +3,7 @@
 import { useEffect, useState, use } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { ArrowLeft, MapPin, Palette, Pencil, Bell, Check } from 'lucide-react';
 import { formatPrice, formatEventDate, CATEGORY_LABELS } from '@/lib/format';
 import { useReminder } from '@/hooks/useReminder';
 import { EventItem } from '@/components/EventCard';
@@ -97,7 +98,7 @@ export default function EventDetailPage({
             padding: '40px 24px',
           }}
         >
-          <div style={{ fontSize: '36px', marginBottom: '16px' }}>📍</div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}><MapPin size={36} color="#6e727a" /></div>
           <h1 style={{ fontSize: '20px', fontWeight: 600, color: '#ffffff', marginBottom: '8px' }}>
             Event Not Found
           </h1>
@@ -180,7 +181,8 @@ function EventDetailContent({
               gap: '6px',
             }}
           >
-            ← Back to all events
+            <ArrowLeft size={14} style={{ marginRight: '4px' }} />
+            Back to all events
           </Link>
         </div>
 
@@ -234,10 +236,10 @@ function EventDetailContent({
                     borderRadius: '6px',
                     fontSize: '11px',
                     fontWeight: 600,
-                    backgroundColor: 'rgba(146, 129, 247, 0.25)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.12)',
                     backdropFilter: 'blur(8px)',
-                    color: '#baa7ff',
-                    border: '1px solid rgba(146, 129, 247, 0.4)',
+                    color: '#ffffff',
+                    border: '1px solid rgba(255, 255, 255, 0.25)',
                     textTransform: 'uppercase',
                     letterSpacing: '0.4px',
                   }}
@@ -254,9 +256,13 @@ function EventDetailContent({
                     backdropFilter: 'blur(8px)',
                     color: '#ffffff',
                     border: '1px solid #292d30',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
                   }}
                 >
-                  📍 {event.city}
+                  <MapPin size={11} />
+                  {event.city}
                 </span>
               </div>
               <h1
@@ -342,7 +348,7 @@ function EventDetailContent({
             >
               <div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-                  <span style={{ fontSize: '18px' }}>🎨</span>
+                  <Palette size={18} color="#a1a4a5" />
                   <h3 style={{ fontSize: '16px', fontWeight: 600, color: '#ffffff', margin: 0 }}>
                     Event Card Designer
                   </h3>
@@ -359,17 +365,20 @@ function EventDetailContent({
                 style={{
                   padding: '8px 16px',
                   borderRadius: '6px',
-                  backgroundColor: 'rgba(146, 129, 247, 0.12)',
-                  color: '#baa7ff',
-                  border: '1px solid rgba(146, 129, 247, 0.3)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.06)',
+                  color: '#f0f0f0',
+                  border: '1px solid #292d30',
                   fontSize: '13px',
                   fontWeight: 500,
                   textDecoration: 'none',
                   whiteSpace: 'nowrap',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
                   transition: 'all 150ms ease-out',
                 }}
               >
-                {initialCard ? 'Edit Card Design ✏️' : 'Design Card ✨'}
+                {initialCard ? <><Pencil size={14} /> Edit Card Design</> : <><Palette size={14} /> Design Card</>}
               </Link>
             </div>
           </div>
@@ -444,13 +453,15 @@ function EventDetailContent({
                       transition: 'all 150ms ease-out',
                     }}
                   >
-                    {reminderLoading
-                      ? 'Updating...'
-                      : !isLoggedIn
-                      ? 'Log in to set reminder 🔔'
-                      : reminded
-                      ? 'Reminder set ✓'
-                      : 'Remind me 🔔'}
+                    {reminderLoading ? (
+                      'Updating...'
+                    ) : !isLoggedIn ? (
+                      <><Bell size={15} style={{ marginRight: '6px' }} />Log in to set reminder</>
+                    ) : reminded ? (
+                      <><Check size={15} style={{ marginRight: '6px' }} />Reminder set</>
+                    ) : (
+                      <><Bell size={15} style={{ marginRight: '6px' }} />Remind me</>
+                    )}
                   </button>
 
                   {reminderError && (

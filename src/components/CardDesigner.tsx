@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin, Check } from 'lucide-react';
 import {
   THEMES,
   THEME_GRADIENTS,
@@ -128,9 +129,13 @@ export function CardDesigner({
                 backgroundColor: 'rgba(0, 0, 0, 0.25)',
                 padding: '4px 8px',
                 borderRadius: '6px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
               }}
             >
-              📍 {event.city}
+              <MapPin size={12} />
+              <span>{event.city}</span>
             </div>
           </div>
 
@@ -256,7 +261,10 @@ export function CardDesigner({
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.transform = 'scale(1.03)')}
                     onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.transform = 'scale(1)')}
                   >
-                    {THEME_LABELS[t]} {isSelected && '✓'}
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                      <span>{THEME_LABELS[t]}</span>
+                      {isSelected && <Check size={14} strokeWidth={2.5} />}
+                    </span>
                   </button>
                 );
               })}
@@ -306,7 +314,7 @@ export function CardDesigner({
                     onMouseEnter={(e) => {
                       if (!isMax) {
                         (e.currentTarget as HTMLElement).style.transform = 'scale(1.15)';
-                        (e.currentTarget as HTMLElement).style.borderColor = '#9281f7';
+                        (e.currentTarget as HTMLElement).style.borderColor = '#ffffff';
                       }
                     }}
                     onMouseLeave={(e) => {

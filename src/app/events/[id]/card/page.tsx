@@ -3,6 +3,7 @@
 import { useEffect, useState, use } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { ArrowLeft } from 'lucide-react';
 import { CardDesigner } from '@/components/CardDesigner';
 import { EventItem } from '@/components/EventCard';
 import { Theme } from '@/lib/card';
@@ -103,7 +104,8 @@ export default function EventCardPage({
               gap: '6px',
             }}
           >
-            ← Back to {data.event.title}
+            <ArrowLeft size={14} style={{ flexShrink: 0 }} />
+            Back to {data.event.title}
           </Link>
         </div>
 
