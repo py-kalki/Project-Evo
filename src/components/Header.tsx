@@ -68,9 +68,9 @@ export function Header() {
       >
         {/* Wordmark with Brand Logo Image */}
         <Link
-          href="/events"
+          href="/"
           style={{
-            fontSize: '16px',
+            fontSize: '15px',
             fontWeight: 600,
             color: '#ffffff',
             textDecoration: 'none',
@@ -85,9 +85,9 @@ export function Header() {
             src="/loog.png"
             alt="Project Evo"
             style={{
-              height: '26px',
+              height: '24px',
               width: 'auto',
-              maxHeight: '26px',
+              maxHeight: '24px',
               objectFit: 'contain',
               display: 'block',
             }}
@@ -100,6 +100,9 @@ export function Header() {
           className="hidden-mobile"
           style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
         >
+          <NavLink href="/" active={pathname === '/'}>
+            Overview
+          </NavLink>
           <NavLink href="/events" active={isActive('/events')}>
             Events
           </NavLink>
@@ -135,7 +138,7 @@ export function Header() {
               <button
                 onClick={handleLogout}
                 className="btn-ghost"
-                style={{ padding: '7px 14px', fontSize: '13px', minHeight: '36px' }}
+                style={{ padding: '6px 14px', fontSize: '13px', minHeight: '34px', borderRadius: '9999px' }}
                 aria-label="Log out"
               >
                 Log out
@@ -145,17 +148,28 @@ export function Header() {
             <>
               <Link
                 href="/login"
-                className="btn-ghost"
-                style={{ padding: '7px 14px', fontSize: '13px', minHeight: '36px' }}
+                style={{
+                  color: '#f0f0f0',
+                  textDecoration: 'none',
+                  fontSize: '13px',
+                  padding: '6px 12px',
+                  transition: 'color 150ms ease-out',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = '#f0f0f0';
+                }}
               >
                 Log in
               </Link>
               <Link
                 href="/signup"
                 className="btn-primary"
-                style={{ padding: '7px 14px', fontSize: '13px', minHeight: '36px' }}
+                style={{ padding: '6px 16px', fontSize: '13px', minHeight: '34px' }}
               >
-                Sign up
+                Get started
               </Link>
             </>
           )}

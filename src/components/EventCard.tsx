@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { MapPin } from 'lucide-react';
 import { formatPrice, formatEventDate, CATEGORY_LABELS } from '@/lib/format';
